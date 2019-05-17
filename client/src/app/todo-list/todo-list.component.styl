@@ -1,0 +1,24 @@
+color-primary-warm = #fa6b57
+
+.todo-list
+    background color-primary-warm
+    position absolute
+    top: 0
+    right 0
+    color white
+
+    .toggle
+        height 60px
+        line-height 60px
+        padding: 0 25px
+        border-bottom 1px solid darken(color-primary-warm, 20%)
+        text-shadow 0 -1px 0 darken(color-primary-warm, 20%)
+        cursor: pointer
+        transition: line-height 0.1s ease-in-out
+        position: relative
+
+        &:hover 
+            line-height: 56px;
+
+    .list
+        display none

@@ -27,6 +27,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/constants.styl",
               "src/styles.styl"
             ],
             "scripts": [],

@@ -1,0 +1,27 @@
+color-primary-warm = #fa6b57
+
+.app-header
+    display grid
+    grid-template-columns 1fr 4fr
+    grid-template-areas
+        ".display-time .current-task"
+    border-top 6px solid color-primary-warm
+    border-bottom 1px solid #ebebeb
+    position relative
+
+    .display-time
+        background #ebebeb
+        display block
+        font-size 24px
+        text-align center
+        color darken(#ebebeb, 50%)
+        line-height 60px
+        text-shadow 0 1px 0 #fff
+        font-weight 500
+        
+    .current-task
+        line-height 60px
+        padding-left 20px
+        color #555
+
+    

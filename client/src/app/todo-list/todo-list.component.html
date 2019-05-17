@@ -1,0 +1,8 @@
+<div class="todo-list">
+  <div class="toggle" (click)="toggleTodo()">
+    Todos
+  </div>
+  <div class="list">
+    <p *ngFor="let todo of todos">{{todo.content}}</p>
+  </div>
+</div>
