@@ -3,22 +3,100 @@ color-primary-warm = #fa6b57
 .todo-list
     background color-primary-warm
     position absolute
-    top: 0
+    top: 60px
     right 0
     color white
-
-    .toggle
-        height 60px
-        line-height 60px
-        padding: 0 25px
-        border-bottom 1px solid darken(color-primary-warm, 20%)
-        text-shadow 0 -1px 0 darken(color-primary-warm, 20%)
+    padding: 10px 0 0
+    z-index 9999
+    display none
+    p
+        padding 8px 10px
+        margin: 0 10px
+        text-shadow 0 -1px 0 saturation(darken(color-primary-warm, 20%), 80%)
+        border-radius: 10px
         cursor: pointer
-        transition: line-height 0.1s ease-in-out
+        transition: all 0.07s ease-in-out
+        &:first-of-type
+            border: 2px dashed saturation(darken(color-primary-warm, 20%), 75%)
+        &:hover
+            padding-left: 13px
+    form
         position: relative
+        button 
+            position: absolute
+            right 14px
+            border-radius: 50%;
+            border: none
+            top 13px
+            height: 41px
+            width: 41px
+            background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(226,226,226,1) 100%);
+            line-height: 43px
+            box-shadow: inset 0 -1px 0 #fff, 
+                0 0 5px saturation(darken(color-primary-warm, 20%), 40%)
+            font-size 20px
+            color saturation(darken(color-primary-warm, 35%), 45%)
+            text-shadow: 0 1px 0 #fff
+            outline: none
+            font-weight: 800
+            cursor: pointer
+            transition: all 0.1s ease-in-out
+            &:hover
+                transform: scale(1.2)
+                box-shadow: inset 0 -1px 0 #fff, 
+                    0 0 20px #fff
+            &:active,
+            &:visited
+                transform: scale(1.1)
 
-        &:hover 
-            line-height: 56px;
+    input 
+        display: border-box
+        border: none 
+        border-radius: 25px
+        margin: 10px 10px
+        padding: 7px 56px 7px 15px
+        background: saturation(darken(color-primary-warm, 10%), 80%)
+        border-top: 1px solid saturation(darken(color-primary-warm, 25%), 65%)
+        box-shadow: inset 0 0 20px saturation(darken(color-primary-warm, 30%), 70%)
+        border-bottom 1px solid lighten(color-primary-warm, 15%)
+        color: #eee
+        text-shadow 0 -1px 0 saturation(darken(color-primary-warm, 20%), 80%)
+        font-size: 14px
+        transition: all 0.1s ease-in-out
+        line-height: 32px
+        &:focus
+            outline: none
+            box-shadow: inset 0 0 10px saturation(darken(color-primary-warm, 30%), 70%)
+            color: #fff
+            text-shadow 0 -1px 0 saturation(darken(color-primary-warm, 20%), 80%),
+                0 0 3px rgba(255,255,255,0.5),
+                0 0 5px rgba(255,255,255,0.3)
 
-    .list
-        display none
+    .show-done
+        display: block
+        width: 100%
+        border: none
+        background: saturation(darken(color-primary-warm, 10%), 75%)
+        padding: 10px
+        color: #fff
+        font-size: 14px
+        margin-top: 10px
+        // border-top: 1px solid lighten(color-primary-warm, 10%)
+        // box-shadow: inset 0 1px 0 saturation(darken(color-primary-warm, 15%), 70%)
+
+.todo-toggle
+    position absolute
+    background color-primary-warm
+    right 0
+    top 0
+    height 60px
+    line-height 60px
+    padding: 0 25px
+    color white
+    border-bottom 1px solid darken(color-primary-warm, 20%)
+    text-shadow 0 -1px 0 saturation(darken(color-primary-warm, 20%), 80%)
+    cursor: pointer
+    transition: line-height 0.07s ease-in-out
+
+    &:hover 
+        line-height: 56px;

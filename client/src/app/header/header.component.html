@@ -1,9 +1,9 @@
 <header class="app-header">
   <div class="display-time">
-    <p>{{ time | date:'hh:mm'}} </p>
+    <p>{{ time | date:'HH:mm'}} </p>
   </div>
   <div class="current-task">
-    <p><strong>Next:</strong> {{ next.schedule.start | date:'hh:mm'}}-{{ next.schedule.end | date:'hh:mm'}} {{next.content}}</p>
+    <p><strong>Next:</strong> {{ next.schedule.start | date:'HH:mm'}}-{{ next.schedule.end | date:'HH:mm'}} {{next.content}}</p>
   </div>
   <app-todo-list></app-todo-list>
 </header>

@@ -1,8 +1,12 @@
+<div class="todo-toggle" (click)="toggleTodo()">
+  Todos
+</div>
+
 <div class="todo-list">
-  <div class="toggle" (click)="toggleTodo()">
-    Todos
-  </div>
-  <div class="list">
-    <p *ngFor="let todo of todos">{{todo.content}}</p>
-  </div>
+  <form action="">
+    <input type="text" />
+    <button type="submit">+</button>
+  </form>
+  <p *ngFor="let todo of todos">{{todo.content}}</p>
+  <button class="show-done">Show done</button>
 </div>
