@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-menu',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.styl']
 })
 export class MenuComponent implements OnInit {
-
+  time: moment.Moment = moment();
+  
   constructor() { }
 
   ngOnInit() {

@@ -3,12 +3,12 @@ color-primary-cold = #1f2d3b
 .app-menu
     background: color-primary-cold
     height: 100%
-    padding-top: 5px;
-    box-shadow inset 0 10px 5px -6px darken(color-primary-cold, 50%)
+    // padding-top: 5px;
+    // box-shadow inset 0 10px 5px -6px darken(color-primary-cold, 50%)
 
     div
-        border-bottom: 3px dashed darken(color-primary-cold, 50%)
-        border-top: 1px dashed lighten(color-primary-cold, 5%)
+        border-bottom: 3px double darken(color-primary-cold, 50%)
+        border-top: 1px solid lighten(color-primary-cold, 5%)
 
         &:first-of-type
             border-top: none
@@ -40,5 +40,28 @@ color-primary-cold = #1f2d3b
             text-shadow 0 0 10px #fff,
                 0 -1px 0 darken(color-primary-cold, 30%)
             padding-left: 17px
+    
+    .display-date
+        padding: 15px 0 15px
+        background: darken(color-primary-cold, 50%)
+        & + div
+            border-top-style: solid
+        span 
+            display: block
+            color: #eee
+            text-shadow 0 -1px 0 #fff, 0 -3px 0 darken(color-primary-cold, 80%)
+            // color: darken(color-primary-cold, 30%)
+            // text-shadow: 0 1px 0 lighten(color-primary-cold, 10%),
+            //     0 -2px 0 darken(color-primary-cold, 50%)
+            text-align: center
+            &.date-day
+                font-size: 48px
+                font-weight: bold
+            &.date-month
+                text-transform: uppercase
+            &.date-weekday
+                font-size: 14px
+                opacity: 0.4
+                text-transform: lowercase
             
 

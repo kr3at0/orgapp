@@ -1,7 +1,17 @@
+.app-container
+    overflow-x: hidden
+
 .main-content
     display grid
     grid-template-columns 1fr 4fr
     grid-template-areas
-        ".menu ."
+        ".menu .app-content"
     position relative
     height calc(100vh - 60px)
+
+.app-content
+    padding: 20px
+    background: #f9f9f9
+    color: #444
+    text-shadow: 0 1px 0 #fff
+    font-size: 14px

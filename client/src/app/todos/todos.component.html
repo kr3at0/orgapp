@@ -1,0 +1,11 @@
+
+<p *ngIf="!todos.todo.length" class="notice">❤ Yaaaay, nothing to do! ❤</p>
+
+<div class="todos">
+  <div class="todo" *ngFor="let todo of todos.todo">
+    <p>{{ todo.content }}</p>
+  </div>
+  <div class="todo todo-done" *ngFor="let todo of todos.done">
+      <p>{{ todo.content }}</p>
+    </div>
+</div>

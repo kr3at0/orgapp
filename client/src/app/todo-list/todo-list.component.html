@@ -2,11 +2,11 @@
   Todos
 </div>
 
-<div class="todo-list">
-  <form action="">
-    <input type="text" />
-    <button type="submit">+</button>
+<div class="todo-list" [ngClass]="{'show-list': this.showList }">
+  <form action="" (submit)="addTodo()">
+    <input type="text" [(ngModel)]="newTodo" name="todo" autocomplete="off"/>
+    <button type="submit" [disabled]="!newTodo">+</button>
   </form>
-  <p *ngFor="let todo of todos">{{todo.content}}</p>
-  <button class="show-done">Show done</button>
+  <p *ngFor="let todo of todos.todo"><span class="mark-done" (click)="markAsDone(todo)"></span>{{todo.content}}<span class="remove-todo" (click)="removeTodo(todo.id)">✕</span></p>
+  <!-- <button class="show-done">done</button> -->
 </div>
