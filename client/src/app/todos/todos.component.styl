@@ -1,7 +1,14 @@
 color-primary-warm = #fa6b57
+color-primary-cold = #1f2d3b
 
 h2 
     padding: 5px
+
+.todo-container
+    display: flex
+    flex-direction: column
+    max-height: 100%
+
 .todos
     border-top: 1px dotted #d8d8d8
     border-bottom: 1px solid #fff
@@ -33,15 +40,14 @@ h2
                 text-align: center
                 border-radius: 2px
                 cursor pointer
-                transition: all 0.5s ease-in-out
         &.todo-todo
             &:hover
                 span.checkbox:after
                     content: '✔'
-                    opacity: 0.3
+                    opacity: 0.5
+                    color: #888
             span.checkbox
                 &:after
-                    transition: color 0.2s ease-in-out
                 &:hover:after
                     color: color-primary-warm
                     opacity: 1
@@ -49,23 +55,52 @@ h2
                     border-top-color saturation(darken(color-primary-warm, 20%), 80%)
                     border-bottom-color saturation(lighten(color-primary-warm, 65%), 90%)
                     box-shadow: 0 0 0 5px color-primary-warm
-                
-    .tags
-        margin: 0 5px
-        span.tag
-            color: #ffffff
-            text-shadow: 0 -1px 0 rgba(0,0,0,0.2)
-            font-size: 80%
-            padding: 2px 5px
-            border-radius: 3px
-            margin-left: 5px
-            &.tag-disabled
-                background: #aaa
-    
     .todo-done
         text-shadow: none
         color: #bbb
 
+.tags
+    margin: 0 5px
+    display: flex
+    span.tag
+        color: #ffffff
+        text-shadow: 0 -1px 0 rgba(0,0,0,0.2)
+        font-size: 80%
+        padding: 2px 5px
+        border-radius: 3px
+        margin-left: 5px
+        cursor: pointer
+        transition: transform 0.1s ease-in-out
+        position relative
+        &.tag-disabled
+            background: #aaa
+        &:hover
+            transform: scale(1.1)
+
+.todo-filter
+    display: flex
+    // justify-content: space-between
+    align-items: center
+    .show-all
+        background: #ddd;
+        border-radius: 3px;
+        padding: 5px 10px;
+        text-transform: capitalize;
+        font-size: 12px;
+        color: #777;
+        font-weight: 500
+        border: 1px solid;
+        text-shadow: 0 1px 0 #f3f3f3;
+        border-color: #d5d5d5 #d0d0d0 #bbb;
+        box-shadow: inset 0 1px 0 #eee, inset 1px 0 0 #e5e5e5, inset -1px 0 0 #e5e5e5, 0 5px 3px -3px #ddd;
+        cursor: pointer
+        transition: background 0.2s ease-in-out
+        position relative
+        &:hover
+            background: #e5e5e5;
+        &:active
+            top 1px
+            outline: none
 .notice
     text-align: center
     color: color-primary-warm

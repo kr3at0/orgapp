@@ -1,17 +1,40 @@
+<div class="todo-container">
+<p *ngIf="!todos.todo.length && !appliedFilters.length" class="notice">Няма нищо повече за правене</p>
 
-<p *ngIf="!todos.todo.length" class="notice">Няма нищо повече за правене</p>
+<div class="todo-search">
+  <input type="text" ([ngModel])="searchTerm" (keyup)="searchTodos()" />
+</div>
+
+<div class="todo-filter">
+  <button (click)="showAllTodos()" class="show-all" *ngIf="appliedFilters.length">Show all</button>
+  <div class="tags">
+    <span class="tag" 
+      *ngFor="let tag of appliedFilters"
+      [ngStyle]="{backgroundColor: todos.tags[tag].color}"
+      (click)="filterTodos(tag)"
+    >
+      {{ tag }}
+    </span>
+  </div>
+</div>
 
 <div *ngIf="todos.todo.length">
   <h2>Да свърша</h2>
   <div class="todos">
     <div class="todo todo-todo" *ngFor="let todo of todos.todo">
       <p>
-        <span class="mark-done checkbox" (click)="markAsDone(todo)"></span>
+        <span 
+          class="mark-done checkbox" 
+          (click)="markAsDone(todo)"
+        ></span>
         {{ todo.content }}
-        
       </p>
       <div class="tags">
-        <span class="tag" *ngFor="let tag of todo.tags" [ngStyle]="{backgroundColor: todos.tags[tag].color}">
+        <span class="tag" 
+          *ngFor="let tag of todo.tags"
+          [ngStyle]="{backgroundColor: todos.tags[tag].color}"
+          (click)="filterTodos(tag)"
+        >
           {{ tag }}
         </span>
       </div>
@@ -20,7 +43,7 @@
 </div>
 
 <div *ngIf="todos.done.length">
-  <h2 *ngIf="todos.todo.length">Свършени</h2>
+  <h2 *ngIf="todos.todo.length || appliedFilters.length">Свършени</h2>
   <div class="todos">
     <div class="todo todo-done" *ngFor="let todo of todos.done">
         <p>
@@ -28,10 +51,15 @@
           {{ todo.content }}
         </p>
         <div class="tags">
-          <span class="tag tag-disabled" *ngFor="let tag of todo.tags">
+          <span 
+            class="tag tag-disabled" 
+            *ngFor="let tag of todo.tags"
+            (click)="filterTodos(tag)"
+          >
               {{ tag }}
             </span>
         </div>
       </div>
   </div>
+</div>
 </div>
