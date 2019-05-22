@@ -1,18 +1,73 @@
 color-primary-warm = #fa6b57
 
+h2 
+    padding: 5px
 .todos
     border-top: 1px dotted #d8d8d8
     border-bottom: 1px solid #fff
+    border-radius: 5px
+    margin-bottom: 20px
     .todo
         border-bottom: 1px dotted #d8d8d8
-        padding: 10px
         border-top: 1px solid #fff
+        display: flex
+        align-items: center
+        justify-content: space-between
+        border-radius: 5px
+        transition: background 0.2s ease-in-out
+        &:hover
+            background: #eee
+        p
+            position relative
+            padding: 10px 10px 10px 30px
+            span.checkbox
+                position absolute
+                left: 5px
+                top: 50%
+                margin-top -8px
+                height 16px
+                width 16px
+                box-shadow inset 0 0 10px -2px #bbbbbb
+                border-bottom 1px solid #ffffff
+                border-top 1px solid #bbb
+                text-align: center
+                border-radius: 2px
+                cursor pointer
+                transition: all 0.5s ease-in-out
+        &.todo-todo
+            &:hover
+                span.checkbox:after
+                    content: '✔'
+                    opacity: 0.3
+            span.checkbox
+                &:after
+                    transition: color 0.2s ease-in-out
+                &:hover:after
+                    color: color-primary-warm
+                    opacity: 1
+                &:hover
+                    border-top-color saturation(darken(color-primary-warm, 20%), 80%)
+                    border-bottom-color saturation(lighten(color-primary-warm, 65%), 90%)
+                    box-shadow: 0 0 0 5px color-primary-warm
+                
+    .tags
+        margin: 0 5px
+        span.tag
+            color: #ffffff
+            text-shadow: 0 -1px 0 rgba(0,0,0,0.2)
+            font-size: 80%
+            padding: 2px 5px
+            border-radius: 3px
+            margin-left: 5px
+            &.tag-disabled
+                background: #aaa
+    
     .todo-done
         text-shadow: none
         color: #bbb
 
 .notice
     text-align: center
-    padding: 20px
     color: color-primary-warm
     font-size: 20px
+    margin-bottom: 20px

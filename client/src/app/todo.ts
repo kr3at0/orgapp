@@ -7,4 +7,5 @@ export class Todo {
 export class TodoList {
   todo: Todo[];
   done: Todo[];
+  tags: {};
 }

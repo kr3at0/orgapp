@@ -10,7 +10,8 @@ import { TodoService } from '../todo.service';
 export class TodosComponent implements OnInit {
   todos: TodoList = {
     todo: [],
-    done: []
+    done: [],
+    tags: {}
   };
 
   constructor(private todoService: TodoService) { }
@@ -22,6 +23,16 @@ export class TodosComponent implements OnInit {
   getTodos(): void {
     this.todoService.getTodos()
       .subscribe(todos => this.todos = todos);
+  }
+
+  markAsDone(todo: Todo) {
+    this.todoService.moveToDone(todo)
+      .subscribe((todos => this.todos = todos));
+  }
+
+  markAsTodo(todo: Todo) {
+    this.todoService.moveToToDo(todo)
+      .subscribe((todos => this.todos = todos));
   }
 
 }

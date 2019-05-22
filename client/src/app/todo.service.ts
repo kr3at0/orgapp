@@ -14,7 +14,27 @@ export class TodoService {
 
   todos: TodoList = {
     todo: TODOS,
-    done: []
+    done: [],
+    tags: {
+      'за в нас': {
+        color: '#900048'
+      },
+      'работа': {
+        color: '#240041'
+      },
+      'храна': {
+        color: '#ff4057'
+      },
+      'котки': {
+        color: '#5ca0d3'
+      },
+      'разходи': {
+        color: '#15cda8'
+      },
+      'култура': {
+        color: '#aa5c9f'
+      }
+    }
   };
   idWatcher: number = TODOS.length ? TODOS[TODOS.length - 1].id + 1 : 0;
 
@@ -45,8 +65,15 @@ export class TodoService {
   }
 
   moveToDone(doneTodo: Todo): Observable<TodoList> {
-    this.todos.done.push(doneTodo);
+    this.todos.done.unshift(doneTodo);
     this.todos.todo = this.todos.todo.filter(todo => todo.id !== doneTodo.id);
+
+    return of(this.todos);
+  }
+
+  moveToToDo(todoTodo: Todo): Observable<TodoList> {
+    this.todos.todo.push(todoTodo);
+    this.todos.done = this.todos.done.filter(done => done.id !== todoTodo.id);
 
     return of(this.todos);
   }

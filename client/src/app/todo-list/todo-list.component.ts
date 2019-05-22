@@ -11,7 +11,8 @@ import { TodoService } from '../todo.service';
 export class TodoListComponent implements OnInit {
   todos: TodoList = {
     todo: [],
-    done: []
+    done: [],
+    tags: {}
   };
   showList: boolean = false;
   newTodo: string = '';
