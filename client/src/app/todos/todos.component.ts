@@ -22,7 +22,9 @@ export class TodosComponent implements OnInit {
   appliedFilters: string[] = [];
   searchTerm: string = '';
   objectKeys = Object.keys;
+
   constructor(private todoService: TodoService) { }
+
 
   ngOnInit() {
     this.getTodos();
