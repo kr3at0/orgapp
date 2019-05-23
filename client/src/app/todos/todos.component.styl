@@ -13,7 +13,6 @@ h2
     border-top: 1px dotted #d8d8d8
     border-bottom: 1px solid #fff
     border-radius: 5px
-    margin-bottom: 20px
     .todo
         border-bottom: 1px dotted #d8d8d8
         border-top: 1px solid #fff
@@ -62,13 +61,14 @@ h2
 .tags
     margin: 0 5px
     display: flex
+    flex-wrap: wrap
     span.tag
         color: #ffffff
         text-shadow: 0 -1px 0 rgba(0,0,0,0.2)
         font-size: 80%
         padding: 2px 5px
         border-radius: 3px
-        margin-left: 5px
+        margin: 5px
         cursor: pointer
         transition: transform 0.1s ease-in-out
         position relative
@@ -79,12 +79,13 @@ h2
 
 .todo-filter
     display: flex
+    width: 50%
     // justify-content: space-between
     align-items: center
     .show-all
         background: #ddd;
         border-radius: 3px;
-        padding: 5px 10px;
+        padding: 10px;
         text-transform: capitalize;
         font-size: 12px;
         color: #777;
@@ -96,6 +97,7 @@ h2
         cursor: pointer
         transition: background 0.2s ease-in-out
         position relative
+        min-width: fit-content
         &:hover
             background: #e5e5e5;
         &:active
@@ -106,3 +108,22 @@ h2
     color: color-primary-warm
     font-size: 20px
     margin-bottom: 20px
+
+.todo-search
+    display: flex
+    padding-bottom: 20px
+    border-bottom 1px dotted #ccc
+    box-shadow 0 1px 0 #fff
+    border-radius: 5px
+    align-items: center
+    input 
+        border: 1px solid #eee
+        padding: 10px
+        display block
+        flex: 1 1 100%
+    select 
+        border 1px solid #eee
+        background #fff
+        color #777
+        margin 0 10px
+        padding 10px

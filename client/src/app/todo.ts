@@ -5,7 +5,13 @@ export class Todo {
 }
 
 export class TodoList {
-  todo: Todo[];
-  done: Todo[];
+  todo: {
+    all: Todo[];
+    filtered: Todo[];
+  }
+  done: {
+    all: Todo[];
+    filtered: Todo[];
+  }
   tags: {};
 }

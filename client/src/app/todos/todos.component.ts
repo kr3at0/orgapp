@@ -9,13 +9,19 @@ import { TodoService } from '../todo.service';
 })
 export class TodosComponent implements OnInit {
   todos: TodoList = {
-    todo: [],
-    done: [],
+    todo: {
+      all: [],
+      filtered: []
+    },
+    done: {
+      all: [],
+      filtered: []
+    },
     tags: {}
   };
   appliedFilters: string[] = [];
   searchTerm: string = '';
-
+  objectKeys = Object.keys;
   constructor(private todoService: TodoService) { }
 
   ngOnInit() {
@@ -50,30 +56,35 @@ export class TodosComponent implements OnInit {
   }
 
   applyFilters(): void {
-    this.todos.todo = this.todos.todo.filter(todo => this.appliedFilters.every(t => todo.tags.includes(t)));
-    this.todos.done = this.todos.done.filter(todo => this.appliedFilters.every(t => todo.tags.includes(t)));
+    this.todos.todo.filtered = this.todos.todo.all.filter(todo => this.appliedFilters.every(t => todo.tags.includes(t)));
+    this.todos.done.filtered = this.todos.done.all.filter(todo => this.appliedFilters.every(t => todo.tags.includes(t)));
+    this.todos.todo.filtered = this.todos.todo.filtered.filter(todo => todo.content.indexOf(this.searchTerm) >= 0);
+    this.todos.done.filtered = this.todos.done.filtered.filter(todo => todo.content.indexOf(this.searchTerm) >= 0);
   } 
 
   filterTodos(tag: string): void {
-    if(this.appliedFilters.includes(tag)) {
-      this.appliedFilters[this.appliedFilters.indexOf(tag)] = this.appliedFilters[this.appliedFilters.length - 1];
-      this.appliedFilters.pop();
-      this.getTodos();
+    if (!tag) {
+      this.showAllTodos();
     } else {
-      this.appliedFilters.push(tag);
+      if(this.appliedFilters.includes(tag)) {
+        this.appliedFilters[this.appliedFilters.indexOf(tag)] = this.appliedFilters[this.appliedFilters.length - 1];
+        this.appliedFilters.pop();
+      } else {
+        this.appliedFilters.push(tag);
+      }
+      this.applyFilters();
     }
-    console.log(this.appliedFilters);
-    this.applyFilters();
   }
 
   showAllTodos(): void {
     this.appliedFilters = [];
-    this.getTodos();
+    this.todos.todo.filtered = this.todos.todo.all.slice();
+    this.todos.done.filtered = this.todos.done.all.slice();
   }
 
   searchTodos(): void {
-    console.log(this.searchTerm);
-    this.todos.todo = this.todos.todo.filter(todo => todo.content.indexOf(this.searchTerm) >= 0);
-    this.todos.done = this.todos.done.filter(todo => todo.content.indexOf(this.searchTerm) >= 0);
+    this.applyFilters();
+    this.todos.todo.filtered = this.todos.todo.filtered.filter(todo => todo.content.indexOf(this.searchTerm) >= 0);
+    this.todos.done.filtered = this.todos.done.filtered.filter(todo => todo.content.indexOf(this.searchTerm) >= 0);
   }
 }

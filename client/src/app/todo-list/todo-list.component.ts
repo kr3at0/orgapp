@@ -10,8 +10,14 @@ import { TodoService } from '../todo.service';
 
 export class TodoListComponent implements OnInit {
   todos: TodoList = {
-    todo: [],
-    done: [],
+    todo: {
+      all: [],
+      filtered: []
+    },
+    done: {
+      all: [],
+      filtered: []
+    },
     tags: {}
   };
   showList: boolean = false;
@@ -34,23 +40,23 @@ export class TodoListComponent implements OnInit {
   addTodo(): void {
     this.todoService.add(this.newTodo)
       .subscribe(todos => {
-        this.todos = todos;
+        this.todos = { ...todos };
         this.newTodo = '';
       });
   }
 
   getTodos(): void {
     this.todoService.getTodos()
-      .subscribe((todos) => this.todos = todos);
+      .subscribe((todos) => this.todos = { ...todos });
   }
 
   removeTodo(id: number): void {
     this.todoService.remove(id)
-      .subscribe(todos => this.todos = todos);
+      .subscribe(todos => this.todos = { ...todos } );
   }
 
   markAsDone(todo: Todo) {
     this.todoService.moveToDone(todo)
-      .subscribe((todos => this.todos = todos));
+      .subscribe((todos => this.todos = { ...todos }));
   }
 }

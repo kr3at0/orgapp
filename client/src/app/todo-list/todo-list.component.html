@@ -1,5 +1,5 @@
 <div class="todo-toggle" (click)="toggleTodo()">
-  Туду
+  Todo
 </div>
 
 <div class="todo-list" [ngClass]="{'show-list': this.showList }">
@@ -7,7 +7,7 @@
     <input type="text" [(ngModel)]="newTodo" name="todo" autocomplete="off"/>
     <button type="submit" [disabled]="!newTodo">+</button>
   </form>
-  <p *ngFor="let todo of todos.todo" class="todo"><span class="mark-done" (click)="markAsDone(todo)"></span>{{todo.content}}<span class="remove-todo" (click)="removeTodo(todo.id)">✕</span></p>
-  <p *ngIf="!todos.todo.length" class="notice">Направи нещо, пустиняк!</p>
+  <p *ngFor="let todo of todos.todo.all" class="todo"><span class="mark-done" (click)="markAsDone(todo)"></span>{{todo.content}}<span class="remove-todo" (click)="removeTodo(todo.id)">✕</span></p>
+  <p *ngIf="!todos.todo.all.length" class="notice">Let's do something!</p>
   <!-- <button class="show-done">done</button> -->
 </div>
