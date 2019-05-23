@@ -33,8 +33,8 @@ export class TodoListComponent implements OnInit {
     this.getTodos();
   }
 
-  toggleTodo(): void {
-    this.showList = !this.showList;
+  toggleTodo(value?: boolean): void {
+    this.showList = value || !this.showList;
   }
 
   addTodo(): void {

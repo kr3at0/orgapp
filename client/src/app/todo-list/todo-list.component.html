@@ -4,7 +4,7 @@
 
 <div class="todo-list" [ngClass]="{'show-list': this.showList }">
   <form action="" (submit)="addTodo()">
-    <input type="text" [(ngModel)]="newTodo" name="todo" autocomplete="off"/>
+    <input type="text" [(ngModel)]="newTodo" name="todo" autocomplete="off" (focus)="toggleTodo(true)"/>
     <button type="submit" [disabled]="!newTodo">+</button>
   </form>
   <p *ngFor="let todo of todos.todo.all" class="todo"><span class="mark-done" (click)="markAsDone(todo)"></span>{{todo.content}}<span class="remove-todo" (click)="removeTodo(todo.id)">✕</span></p>

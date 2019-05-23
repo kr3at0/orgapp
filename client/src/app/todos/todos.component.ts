@@ -25,7 +25,6 @@ export class TodosComponent implements OnInit {
 
   constructor(private todoService: TodoService) { }
 
-
   ngOnInit() {
     this.getTodos();
   }
@@ -82,6 +81,8 @@ export class TodosComponent implements OnInit {
     this.appliedFilters = [];
     this.todos.todo.filtered = this.todos.todo.all.slice();
     this.todos.done.filtered = this.todos.done.all.slice();
+    this.todos.todo.filtered = this.todos.todo.filtered.filter(todo => todo.content.indexOf(this.searchTerm) >= 0);
+    this.todos.done.filtered = this.todos.done.filtered.filter(todo => todo.content.indexOf(this.searchTerm) >= 0);
   }
 
   searchTodos(): void {

@@ -22,6 +22,12 @@ color-primary-warm = #fa6b57
         transition: all 0.07s ease-in-out
         border: 2px dashed transparent
         position: relative
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none;
         &:hover
             // padding-left: 35px
             border-color: saturation(darken(color-primary-warm, 20%), 75%)
@@ -32,6 +38,7 @@ color-primary-warm = #fa6b57
             top: 50%
             margin-top: -9px
             font-size: 16px
+            cursor: pointer
             font-weight: bold
             text-transform: uppercase
             color: saturation(darken(color-primary-warm, 20%), 80%)
