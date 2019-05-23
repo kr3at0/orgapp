@@ -90,4 +90,17 @@ export class TodosComponent implements OnInit {
     this.todos.todo.filtered = this.todos.todo.filtered.filter(todo => todo.content.indexOf(this.searchTerm) >= 0);
     this.todos.done.filtered = this.todos.done.filtered.filter(todo => todo.content.indexOf(this.searchTerm) >= 0);
   }
+
+  assignTodo(todo: Todo, index: number): void {
+    todo.assigned = !todo.assigned;
+    const firsUnassignedIndex = this.todos.todo.all.findIndex(t => !t.assigned);
+    console.log(index, firsUnassignedIndex);
+
+    if (firsUnassignedIndex < index) {
+      this.todos.todo.all[index] = { ...this.todos.todo.all[firsUnassignedIndex] }
+      this.todos.todo.all[firsUnassignedIndex] = { ...todo };
+    }
+
+    this.applyFilters();
+  }
 }

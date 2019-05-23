@@ -2,6 +2,7 @@ export class Todo {
     id: number;
     content: string;
     tags: string[];
+    assigned: boolean;
 }
 
 export class TodoList {

@@ -60,6 +60,28 @@ h2
                     border-top-color saturation(darken(color-primary-warm, 20%), 80%)
                     border-bottom-color saturation(lighten(color-primary-warm, 65%), 90%)
                     box-shadow: 0 0 0 5px color-primary-warm
+        .assign-todo
+            border: none
+            background: none
+            color: #999
+            text-transform: uppercase
+            font-size: 9px
+            font-weight: bold
+            text-decoration: underline
+            display: inline-block
+            // margin: -20px 10px
+            padding: 15px 5px
+            margin: -10px 0
+            &:hover
+                color color-primary-warm
+                cursor pointer
+            &:active,
+            &:focus
+                outline none
+        &.todo-assigned
+            .assign-todo
+                background: color-primary-warm
+                color: #fff
     .todo-done
         p
             text-shadow: none

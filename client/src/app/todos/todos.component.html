@@ -26,13 +26,17 @@
 <div *ngIf="todos.todo.filtered.length">
   <h2>To do</h2>
   <div class="todos">
-    <div class="todo todo-todo" *ngFor="let todo of todos.todo.filtered">
+    <div class="todo todo-todo" *ngFor="let todo of todos.todo.filtered; let i = index" [ngClass]="{'todo-assigned': todo.assigned}">
       <p>
         <span 
           class="mark-done checkbox" 
           (click)="markAsDone(todo)"
         ></span>
         {{ todo.content }}
+
+        <button class="assign-todo" (click)="assignTodo(todo, i)">
+          {{ todo.assigned ? 'Todyay' : 'Today?' }}
+        </button>
       </p>
       <div class="tags">
         <span class="tag" 
