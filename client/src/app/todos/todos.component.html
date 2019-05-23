@@ -1,5 +1,5 @@
 <div class="todo-container">
-<p *ngIf="!todos.todo.all.length && !appliedFilters.length" class="notice">There's nothing left to do!</p>
+<p *ngIf="!todos.todo.all.length" class="notice">There's nothing left to do!</p>
 
 <div class="todo-search">
   <input [(ngModel)]="searchTerm" (keyup)="searchTodos()" placeholder="Search todos" />
@@ -48,7 +48,7 @@
 </div>
 
 <div *ngIf="todos.done.filtered.length">
-  <h2 *ngIf="todos.todo.all.length || appliedFilters.length">Done</h2>
+  <h2 *ngIf="todos.done.all.length || appliedFilters.length">Done</h2>
   <div class="todos">
     <div class="todo todo-done" *ngFor="let todo of todos.done.filtered">
         <p>
