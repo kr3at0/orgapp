@@ -34,7 +34,7 @@ h2
             padding: 10px 10px 10px 30px
             span.checkbox
                 position absolute
-                left: 5px
+                left: 8px
                 top: 50%
                 margin-top -8px
                 height 16px
@@ -52,7 +52,7 @@ h2
                     opacity: 0.5
                     color: #888
             span.checkbox
-                &:after
+                &:after,
                 &:hover:after
                     color: color-primary-warm
                     opacity: 1
@@ -60,6 +60,29 @@ h2
                     border-top-color saturation(darken(color-primary-warm, 20%), 80%)
                     border-bottom-color saturation(lighten(color-primary-warm, 65%), 90%)
                     box-shadow: 0 0 0 5px color-primary-warm
+            &.todo-assigned
+                background color-primary-warm
+                color #fff
+                text-shadow 0 -1px 0 saturation(darken(color-primary-warm, 20%), 80%)
+                border-bottom-color saturation(darken(color-primary-warm, 20%), 80%)
+                border-top-color lighten(color-primary-warm, 15%)
+                &:hover
+                    background: saturation(darken(color-primary-warm, 10%), 85%)
+                    span.checkbox:after
+                        color: saturation(darken(color-primary-warm, 30%), 70%)
+                span.checkbox
+                    background: saturation(darken(color-primary-warm, 10%), 80%)
+                    border-top: 1px solid saturation(darken(color-primary-warm, 25%), 65%)
+                    box-shadow: inset 0 0 5px saturation(darken(color-primary-warm, 30%), 70%)
+                    border-bottom 1px solid lighten(color-primary-warm, 15%)
+                    &:after,
+                    &:hover:after
+                        color #fff
+                    &:hover
+                        box-shadow: 0 0 0 5px #fff
+
+               
+
         .assign-todo
             border: none
             background: none
@@ -80,7 +103,6 @@ h2
                 outline none
         &.todo-assigned
             .assign-todo
-                background: color-primary-warm
                 color: #fff
     .todo-done
         p

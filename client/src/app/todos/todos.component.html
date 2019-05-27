@@ -35,7 +35,7 @@
         {{ todo.content }}
 
         <button class="assign-todo" (click)="assignTodo(todo, i)">
-          {{ todo.assigned ? 'Todyay' : 'Today?' }}
+          {{ todo.assigned ? 'Not Today?' : 'Today?' }}
         </button>
       </p>
       <div class="tags">
