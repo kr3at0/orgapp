@@ -25,7 +25,6 @@ export class TodosComponent implements OnInit {
 
   constructor(private todoService: TodoService) { }
 
-
   ngOnInit() {
     this.getTodos();
   }
@@ -40,6 +39,7 @@ export class TodosComponent implements OnInit {
   }
 
   markAsDone(todo: Todo) {
+    todo.assigned = false;
     this.todoService.moveToDone(todo)
       .subscribe(todos => {
         this.todos = { ...todos }
@@ -82,11 +82,30 @@ export class TodosComponent implements OnInit {
     this.appliedFilters = [];
     this.todos.todo.filtered = this.todos.todo.all.slice();
     this.todos.done.filtered = this.todos.done.all.slice();
+    this.todos.todo.filtered = this.todos.todo.filtered.filter(todo => todo.content.indexOf(this.searchTerm) >= 0);
+    this.todos.done.filtered = this.todos.done.filtered.filter(todo => todo.content.indexOf(this.searchTerm) >= 0);
   }
 
   searchTodos(): void {
     this.applyFilters();
     this.todos.todo.filtered = this.todos.todo.filtered.filter(todo => todo.content.indexOf(this.searchTerm) >= 0);
     this.todos.done.filtered = this.todos.done.filtered.filter(todo => todo.content.indexOf(this.searchTerm) >= 0);
+  }
+
+  assignTodo(todo: Todo, index: number): void {
+    todo.assigned = !todo.assigned;
+    
+    let todos = this.todos.todo.all.map(t => t.assigned);
+    const newIndex = todo.assigned ? todos.findIndex(assigned => !assigned) : todos.lastIndexOf(true);
+
+    if (newIndex >= 0 &&
+       (todo.assigned && newIndex < index ||
+       !todo.assigned && index < newIndex)) 
+    {
+      this.todos.todo.all[index] = { ...this.todos.todo.all[newIndex] }
+      this.todos.todo.all[newIndex] = { ...todo };
+    }
+
+    this.applyFilters();
   }
 }
