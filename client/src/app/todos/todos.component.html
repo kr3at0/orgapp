@@ -4,7 +4,7 @@
 <div class="todo-search">
   <input [(ngModel)]="searchTerm" (keyup)="searchTodos()" placeholder="Search todos" />
   <select name="" id="" (change)="filterTodos($event.target.value)">
-      <option default value="">Filter by tag</option>
+      <option default value="">{{appliedFilters.length ? 'Show all' : 'Filter by tag'}}</option>
       <option value="{{tag}}" *ngFor="let tag of objectKeys(todos.tags)">{{tag}}</option>
     </select>
   <div class="todo-filter">

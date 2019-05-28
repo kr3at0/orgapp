@@ -58,7 +58,8 @@ export class TodoService {
     this.todos.todo.all.push({
       id: this.idWatcher,
       content,
-      tags: []
+      tags: [],
+      assigned: false 
     });
 
     this.todos.todo.filtered = this.todos.todo.all.slice();

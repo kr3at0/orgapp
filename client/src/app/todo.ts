@@ -2,7 +2,7 @@ export class Todo {
     id: number;
     content: string;
     tags: string[];
-    assigned: boolean;
+    assigned: boolean ;
 }
 
 export class TodoList {
