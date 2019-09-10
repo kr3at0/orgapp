@@ -9,8 +9,9 @@
     "lint": "tslint -c tslint.json -p ./",
     "knex": "knex --knexfile dist/src/knexfile.js",
     "db:up": "npm run knex migrate:latest",
-    "db:recreate": "npm run knex migrate:rollback --all && nm run knex migrate:latest",
-    "db:seed": "npm run knex seed:run"
+    "db:recreate": "npm run knex migrate:rollback --all && npm run knex migrate:latest",
+    "db:seed": "npm run knex seed:run",
+    "respawn": "npm run build && npm run db:recreate && npm run db:seed"
   },
   "author": "",
   "license": "ISC",

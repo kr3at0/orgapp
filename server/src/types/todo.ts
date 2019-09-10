@@ -21,6 +21,7 @@ export type Todo = {
     priority: TodoPriority;
     tags: Tag[];
     dueDate: Date;
+    doneAt: Date;
     createdAt: Date;
     updatedAt: Date;
 }
