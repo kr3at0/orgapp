@@ -2,9 +2,15 @@ import dotenv from 'dotenv';
 import convict from 'convict';
 import { join } from 'path';
 
-const envPath = join(__dirname, '..', `.env`);
+let path = join(__dirname, `../../src/.env`);
+dotenv.config({ path });
 
-dotenv.config({ path: envPath });
+const env = process.env.NODE_ENV || 'development';
+
+if (env !== 'development') {
+    path = `${path}.${env}`;
+    dotenv.config({ path });
+}
 
 export const config = convict({
     env: {
