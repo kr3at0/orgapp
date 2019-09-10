@@ -1,4 +1,4 @@
-//import { Tag } from './tag';
+import { Tag } from './tag';
 
 export enum TodoStatus {
     New = 0,
@@ -19,7 +19,7 @@ export type Todo = {
     id: number;
     status: TodoStatus;
     priority: TodoPriority;
-    //tags: Tag[];
+    tags: Tag[];
     dueDate: Date;
     createdAt: Date;
     updatedAt: Date;

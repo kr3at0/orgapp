@@ -8,6 +8,8 @@ exports.up = async (knex: Knex) => {
             table.string('description').notNullable();
             table.integer('status').notNullable().defaultTo(TodoStatus.New);
             table.integer('priority').notNullable().defaultTo(TodoPriority.Normal);
+            table.specificType('tags', 'INT[]').notNullable().defaultTo('{}');
+            table.jsonb('params').notNullable().defaultTo('{}');
             table.dateTime('due_date').defaultTo(knex.fn.now());
             table.timestamp('createdAt').defaultTo(knex.fn.now());
             table.timestamp('updatedAt').defaultTo(knex.fn.now());
