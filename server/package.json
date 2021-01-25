@@ -23,7 +23,7 @@
     "express": "^4.17.1",
     "knex": "^0.19.3",
     "nodemon": "^1.19.2",
-    "objection": "^1.6.9",
+    "objection": "^2.2.10",
     "pg": "^7.12.1",
     "sqlite3": "^4.1.0",
     "ts-node-dev": "^1.0.0-pre.42",
